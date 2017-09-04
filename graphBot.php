@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 require_once ('jpgraph-4.0.1/src/jpgraph.php');
 require_once ('jpgraph-4.0.1/src/jpgraph_line.php');
 
-define('BOT_TOKEN', '<your_bot_token>');
+define('BOT_TOKEN', '447617037:AAGKr7JIjgm4f9BadTOFUxJaqcBD7-ppJjs');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
 // read incoming info and grab the chatID
@@ -15,9 +15,9 @@ $update = json_decode($content, true);
 $chatID = $update["message"]["chat"]["id"];
 
 switch($message){
-	case "/<your_command>@<your_bot>": sendGraph($chatID);
+	case "/sendgraph@bytescoutbot": sendGraph($chatID);
 	break;
-	case "/<your_command>": sendGraph($chatID);
+	case "/sendgraph": sendGraph($chatID);
 	break;
 	default: register_traffic($chatID);
 }
@@ -25,9 +25,9 @@ switch($message){
 function connect_db() {
 
   $host = 'localhost';
-  $user = '<db_user>';
-  $pwd = '<db_password>';
-  $dbname = '<db_name>';
+  $user = 'lulzx';
+  $pwd = 'rdse4me?';
+  $dbname = 'graphbot';
   $error = "Impossible connect to database $dbname! ";
 
   $connect = mysqli_connect($host, $user, $pwd, $dbname) or die($error.mysqli_connect_error());
